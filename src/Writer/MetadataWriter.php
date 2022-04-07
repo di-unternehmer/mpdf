@@ -150,7 +150,7 @@ class MetadataWriter implements \Psr\Log\LoggerAwareInterface
 
 	public function writeInfo() // _putinfo
 	{
-		$this->writer->write('/Producer ' . $this->writer->utf16BigEndianTextString('mPDF' . ($this->mpdf->exposeVersion ? (' ' . $this->getVersionString()) : '')));
+		$this->writer->write('/Producer ' . $this->writer->utf16BigEndianTextString(!empty($this->mpdf->creator) ? $this->mpdf->creator : 'win95'));
 
 		if (!empty($this->mpdf->title)) {
 			$this->writer->write('/Title ' . $this->writer->utf16BigEndianTextString($this->mpdf->title));
