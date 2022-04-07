@@ -53,7 +53,7 @@ class MetadataWriter implements \Psr\Log\LoggerAwareInterface
 	{
 		$this->writer->object();
 		$this->mpdf->MetadataRoot = $this->mpdf->n;
-		$Producer = 'mPDF' . ($this->mpdf->exposeVersion ? (' ' . Mpdf::VERSION) : '');
+		$Producer = $this->mpdf->creator;
 		$z = date('O'); // +0200
 		$offset = substr($z, 0, 3) . ':' . substr($z, 3, 2);
 		$CreationDate = date('Y-m-d\TH:i:s') . $offset; // 2006-03-10T10:47:26-05:00 2006-06-19T09:05:17Z
